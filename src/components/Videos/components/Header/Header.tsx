@@ -19,7 +19,7 @@ const Header = () => {
         justifyContent={"flex-start"}
         alignItems={"center"}
         flexDir={"row"}
-        ml={"0.8em"}
+        ml={"1em"}
       >
         <Logo />
       </Flex>
