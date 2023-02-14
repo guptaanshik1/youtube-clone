@@ -1,11 +1,23 @@
 import { Image } from "@chakra-ui/react";
 import React from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useAppDispatch } from "../../../../app/hooks";
+import { toggleSidebar } from "../../../../features/sidebarSlice";
 
 const Logo = () => {
+  const dispatch = useAppDispatch();
+
+  const handleToggleSidebar = () => {
+    dispatch(toggleSidebar());
+  };
+
   return (
     <>
-      <RxHamburgerMenu size={"25px"} />
+      <RxHamburgerMenu
+        size={"25px"}
+        cursor={"pointer"}
+        onClick={handleToggleSidebar}
+      />
       <Image
         src={
           "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png"
