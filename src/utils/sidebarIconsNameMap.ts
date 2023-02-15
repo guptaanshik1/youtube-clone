@@ -1,7 +1,9 @@
-export const sidebarIconsNameMap: Array<{
+interface sidebar {
   iconName: string;
   auth: "common" | "auth" | "non-auth";
-}> = [
+}
+
+export const sidebarIconsNameMap: sidebar[] = [
   {
     iconName: "Home",
     auth: "common",
@@ -24,6 +26,72 @@ export const sidebarIconsNameMap: Array<{
   },
   {
     iconName: "History",
+    auth: "common",
+  },
+];
+
+export const sidebarExploreIconsNameMap: sidebar[] = [
+  {
+    iconName: "Trending",
+    auth: "common",
+  },
+  {
+    iconName: "Shopping",
+    auth: "non-auth",
+  },
+  {
+    iconName: "Music",
+    auth: "common",
+  },
+  // {
+  //   iconName: "Movies",
+  //   auth: "common",
+  // },
+  // {
+  //   iconName: "Live",
+  //   auth: "common",
+  // },
+  {
+    iconName: "Gaming",
+    auth: "common",
+  },
+  {
+    iconName: "News",
+    auth: "common",
+  },
+  {
+    iconName: "Sport",
+    auth: "common",
+  },
+  {
+    iconName: "Learning",
+    auth: "common",
+  },
+  {
+    iconName: "Fashion & Beauty",
+    auth: "common",
+  },
+];
+
+export const moreFromYtIconNameMap: sidebar[] = [
+  {
+    iconName: "Premium",
+    auth: "common",
+  },
+  {
+    iconName: "Creator",
+    auth: "common",
+  },
+  {
+    iconName: "Music",
+    auth: "common",
+  },
+  {
+    iconName: "Kids",
+    auth: "common",
+  },
+  {
+    iconName: "TV",
     auth: "common",
   },
 ];
