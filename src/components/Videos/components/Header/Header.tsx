@@ -9,11 +9,13 @@ const Header = () => {
     <SimpleGrid
       columns={3}
       justifyContent={"space-between"}
-      border={"1px solid black"}
+      backgroundColor={"#FFFFFF"}
       w={"100%"}
       h={"56px"}
       p={"0 16px"}
       alignItems={"center"}
+      position={"sticky"}
+      top={0}
     >
       <Flex
         justifyContent={"flex-start"}
