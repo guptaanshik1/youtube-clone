@@ -2,10 +2,10 @@ import { Flex, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
-import SearchSuggestions from "./SearchSuggestions";
 import UserHeader from "./UserHeader";
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = React.useState("");
   return (
     <SimpleGrid
       columns={3}
@@ -27,7 +27,9 @@ const Header = () => {
         <Logo />
       </Flex>
       <Flex position={"relative"}>
-        <SearchBar />
+        <Flex>
+          <SearchBar />
+        </Flex>
       </Flex>
       <Flex justifyContent={"flex-end"}>
         <UserHeader />
