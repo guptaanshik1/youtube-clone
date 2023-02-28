@@ -26,10 +26,7 @@ const VideoCard = ({ ...video }) => {
         cursor={"pointer"}
       >
         <Flex>
-          <Image
-            src={video?.snippet?.thumbnails?.standard?.url}
-            borderRadius={"8px"}
-          />
+          <Image src={video?.thumbnails[1]?.url} borderRadius={"8px"} />
         </Flex>
         <Grid
           m={"4px"}
@@ -50,7 +47,9 @@ const VideoCard = ({ ...video }) => {
             rowEnd={1}
             rounded={"full"}
             mr={"8px"}
-          />
+          >
+            <Image src={video?.author?.avatar[0]?.url} />
+          </GridItem>
           <GridItem
             colEnd={4}
             colStart={1}
@@ -60,7 +59,7 @@ const VideoCard = ({ ...video }) => {
             maxH={"50px"}
           >
             <Text fontWeight={700} fontSize={"14px"}>
-              {limitTitleChars(video?.snippet?.title)}
+              {limitTitleChars(video?.title)}
             </Text>
           </GridItem>
           <GridItem
@@ -85,15 +84,15 @@ const VideoCard = ({ ...video }) => {
             w={"100%"}
             mt={"4px"}
           >
-            <Text fontSize={"12px"}>{video?.snippet?.channelTitle}</Text>
+            <Text fontSize={"12px"}>{video?.author?.title}</Text>
           </GridItem>
           <GridItem colStart={1} colEnd={2} rowStart={2} rowEnd={3}>
             <Text fontSize={"10px"}>
-              {formatViewCount(video?.statistics?.viewCount)}
+              {formatViewCount(video?.stats?.views)}
             </Text>
           </GridItem>
           <GridItem colStart={2} colEnd={3} rowStart={2} rowEnd={3}>
-            <Text fontSize={"10px"}>Time ago</Text>
+            <Text fontSize={"10px"}>{video?.publishedTimeText}</Text>
           </GridItem>
         </Grid>
       </Flex>

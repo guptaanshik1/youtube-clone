@@ -17,7 +17,7 @@ const VideoContainer = () => {
       {
         // @ts-ignore
         !isVideosDataLoading &&
-          videosData?.items?.map((video) => <VideoCard {...video} />)
+          videosData?.contents?.map((data) => <VideoCard {...data?.video} />)
       }
     </Flex>
   );
