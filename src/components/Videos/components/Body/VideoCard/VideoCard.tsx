@@ -1,11 +1,21 @@
-import { Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+  chakra,
+  UnorderedList,
+  ListItem,
+} from "@chakra-ui/react";
 import React from "react";
 import { RxDotsVertical } from "react-icons/rx";
+import { VERIFIED_CHANNEL } from "../../../utils/constants";
 import { limitTitleChars } from "../../../utils/limitTitleChars";
 import { formatViewCount } from "../../../utils/viewCountFormatter";
+import { GoVerified } from "react-icons/go";
 
 const VideoCard = ({ ...video }) => {
-  console.log("video: ", video);
   const [isMouseOver, setIsMouseOver] = React.useState(false);
 
   const handleMouseOver = () => {
@@ -26,7 +36,7 @@ const VideoCard = ({ ...video }) => {
         cursor={"pointer"}
       >
         <Flex>
-          <Image src={video?.thumbnails[1]?.url} borderRadius={"8px"} />
+          <Image src={video?.thumbnails[0]?.url} borderRadius={"8px"} />
         </Flex>
         <Grid
           m={"4px"}
@@ -40,15 +50,13 @@ const VideoCard = ({ ...video }) => {
         >
           <GridItem
             w={"40px"}
-            border={"1px solid pink"}
             colStart={0}
             colEnd={1}
             rowStart={0}
             rowEnd={1}
-            rounded={"full"}
             mr={"8px"}
           >
-            <Image src={video?.author?.avatar[0]?.url} />
+            <Image rounded={"full"} src={video?.author?.avatar[0]?.url} />
           </GridItem>
           <GridItem
             colEnd={4}
@@ -84,16 +92,30 @@ const VideoCard = ({ ...video }) => {
             w={"100%"}
             mt={"4px"}
           >
-            <Text fontSize={"12px"}>{video?.author?.title}</Text>
+            <Flex flexDir={"row"}>
+              <Text fontSize={"12px"} mr={"8px"}>
+                {video?.author?.title}
+              </Text>
+              {video?.author?.badges[0]?.type == VERIFIED_CHANNEL ? (
+                <chakra.span mt={"3px"}>
+                  <GoVerified size={"12px"} />
+                </chakra.span>
+              ) : null}
+            </Flex>
           </GridItem>
-          <GridItem colStart={1} colEnd={2} rowStart={2} rowEnd={3}>
-            <Text fontSize={"10px"}>
-              {formatViewCount(video?.stats?.views)}
-            </Text>
+          <GridItem colStart={1} colEnd={4} rowStart={2} rowEnd={3}>
+            <UnorderedList display={"flex"} fontSize={"12px"} m={0}>
+              <ListItem style={{ listStyleType: "none" }} mr={"20px"}>
+                {formatViewCount(video?.stats?.views)}
+              </ListItem>
+              <ListItem>{video?.publishedTimeText}</ListItem>
+            </UnorderedList>
           </GridItem>
-          <GridItem colStart={2} colEnd={3} rowStart={2} rowEnd={3}>
-            <Text fontSize={"10px"}>{video?.publishedTimeText}</Text>
-          </GridItem>
+          {video?.isLiveNow ? (
+            <GridItem rowStart={3} rowEnd={4} colStart={2} colEnd={4}>
+              <chakra.span backgroundColor={"red"}>Live Now</chakra.span>
+            </GridItem>
+          ) : null}
         </Grid>
       </Flex>
     </>
