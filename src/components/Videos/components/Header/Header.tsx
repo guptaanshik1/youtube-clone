@@ -6,6 +6,7 @@ import UserHeader from "./UserHeader";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
+  const menuRef = React.useRef();
   return (
     <SimpleGrid
       columns={3}
