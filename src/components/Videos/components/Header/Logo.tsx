@@ -1,4 +1,4 @@
-import { Image } from "@chakra-ui/react";
+import { IconButton, Image } from "@chakra-ui/react";
 import React from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useAppDispatch } from "../../../../app/hooks";
@@ -13,10 +13,16 @@ const Logo = () => {
 
   return (
     <>
-      <RxHamburgerMenu
-        size={"25px"}
-        cursor={"pointer"}
-        onClick={handleToggleSidebar}
+      <IconButton
+        icon={<RxHamburgerMenu size={"25px"} cursor={"pointer"} />}
+        aria-label={"Open drawer"}
+        background={"transparent"}
+        _hover={{
+          backgroundColor: "lightgrey",
+          cursor: "pointer",
+          rounded: "full",
+        }}
+        _focus={{ outline: "none" }}
       />
       <Image
         src={
