@@ -1,14 +1,17 @@
 import { IconButton, Image } from "@chakra-ui/react";
 import React from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useAppDispatch } from "../../../../app/hooks";
-import { toggleSidebar } from "../../../../features/sidebarSlice";
+import { useAppDispatch } from "../../../app/hooks";
+import { toggleSidebar } from "../../../features/sidebarSlice";
+import { useVideosContext } from "../utils/context";
 
 const Logo = () => {
+  const { onDrawerOpen } = useVideosContext();
   const dispatch = useAppDispatch();
 
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
+    onDrawerOpen();
   };
 
   return (

@@ -1,12 +1,11 @@
 import { Flex, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
-import Logo from "./Logo";
-import SearchBar from "./SearchBar";
-import UserHeader from "./UserHeader";
+import Logo from "../Logo";
+import SearchBar from "./HeaderParts/SearchBar";
+import UserHeader from "./HeaderParts/UserHeader";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
-  const menuRef = React.useRef();
   return (
     <SimpleGrid
       columns={3}

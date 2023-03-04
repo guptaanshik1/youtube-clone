@@ -2,12 +2,13 @@ import React from "react";
 import {
   MdHomeFilled,
   MdOutlineExplore,
+  MdOutlineFeedback,
   MdOutlineSubscriptions,
   MdOutlineVideoLibrary,
 } from "react-icons/md";
 import { VscHistory } from "react-icons/vsc";
 import { HiFire } from "react-icons/hi";
-import { RiShoppingBag2Line } from "react-icons/ri";
+import { RiFlagFill, RiShoppingBag2Line } from "react-icons/ri";
 import { CgMusicNote } from "react-icons/cg";
 import { SiYoutubegaming } from "react-icons/si";
 import { ImNewspaper } from "react-icons/im";
@@ -16,6 +17,8 @@ import { AiOutlineBulb } from "react-icons/ai";
 import { GiClothesline } from "react-icons/gi";
 import YtShortsIcon from "../icons/YtShortsIcon";
 import { IconProps } from "../types/IconProps";
+import { VscSettingsGear } from "react-icons/vsc";
+import { TfiHelpAlt } from "react-icons/tfi";
 
 const Icon: React.FC<IconProps> = ({ iconName, ...props }) => {
   switch (iconName) {
@@ -57,6 +60,14 @@ const Icon: React.FC<IconProps> = ({ iconName, ...props }) => {
       return <BsYoutube {...props} />;
     case "TV":
       return <BsYoutube {...props} />;
+    case "Settings":
+      return <VscSettingsGear {...props} />;
+    case "Report history":
+      return <RiFlagFill {...props} />;
+    case "Help":
+      return <TfiHelpAlt {...props} />;
+    case "Send feedback":
+      return <MdOutlineFeedback {...props} />;
     default:
       return null;
   }
