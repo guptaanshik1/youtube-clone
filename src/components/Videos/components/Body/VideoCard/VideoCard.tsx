@@ -17,7 +17,6 @@ import { GoVerified } from "react-icons/go";
 import { BsBroadcast } from "react-icons/bs";
 
 const VideoCard = ({ ...video }) => {
-  console.log("video: ", video);
   const [isMouseOver, setIsMouseOver] = React.useState(false);
 
   const handleMouseOver = () => {

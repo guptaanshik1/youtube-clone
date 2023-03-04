@@ -95,3 +95,22 @@ export const moreFromYtIconNameMap: sidebar[] = [
     auth: "common",
   },
 ];
+
+export const commonIconNameMap: sidebar[] = [
+  {
+    iconName: "Settings",
+    auth: "common",
+  },
+  {
+    iconName: "Report history",
+    auth: "common",
+  },
+  {
+    iconName: "Help",
+    auth: "common",
+  },
+  {
+    iconName: "Send feedback",
+    auth: "common",
+  },
+];

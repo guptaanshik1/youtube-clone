@@ -12,23 +12,19 @@ const OpenedSidebarCommon = ({ iconNameMap }: IProps) => {
   return (
     <Flex
       flexDir={"column"}
-      height={"40vh"}
-      justifyContent={"space-between"}
-      alignItems={"center"}
-      alignSelf={"flex-start"}
-      p={"0.6em 0"}
+      justifyContent={"flex-start"}
+      alignItems={"flex-start"}
       // border={"1px solid orange"}
     >
-      {iconNameMap.map((icon, index) => {
+      {iconNameMap.map((icon) => {
         return (
           <Flex
             flexDir={"row"}
             key={icon.iconName}
-            justifyContent={"space-between"}
+            justifyContent={"flex-start"}
             alignItems={"center"}
-            // border={"1px solid orange"}
+            // border={"1px solid blue"}
             w={"80%"}
-            ml={"10px"}
             p={"0.6em 0.4em"}
             gap={"20px"}
           >

@@ -1,5 +1,6 @@
 import { Flex, Image, Skeleton } from "@chakra-ui/react";
 import Body from "./components/Body/Body";
+import Header from "./components/Header/Header";
 import { useVideosContext } from "./utils/context";
 
 export default function VideosView() {
@@ -24,19 +25,8 @@ export default function VideosView() {
 
   return (
     <Flex flexDir={"column"}>
+      <Header />
       <Body />
-      {/* {
-        // @ts-ignore
-        videosData?.items?.map((video) => {
-          return (
-            <Image
-              src={video?.snippet?.thumbnails?.medium?.url}
-              alt="video"
-              key={video?.id}
-            />
-          );
-        })
-      } */}
     </Flex>
   );
 }
