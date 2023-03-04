@@ -14,8 +14,10 @@ import { VERIFIED_CHANNEL } from "../../../utils/constants";
 import { limitTitleChars } from "../../../utils/limitTitleChars";
 import { formatViewCount } from "../../../utils/viewCountFormatter";
 import { GoVerified } from "react-icons/go";
+import { BsBroadcast } from "react-icons/bs";
 
 const VideoCard = ({ ...video }) => {
+  console.log("video: ", video);
   const [isMouseOver, setIsMouseOver] = React.useState(false);
 
   const handleMouseOver = () => {
@@ -106,14 +108,30 @@ const VideoCard = ({ ...video }) => {
           <GridItem colStart={1} colEnd={4} rowStart={2} rowEnd={3}>
             <UnorderedList display={"flex"} fontSize={"12px"} m={0}>
               <ListItem style={{ listStyleType: "none" }} mr={"20px"}>
-                {formatViewCount(video?.stats?.views)}
+                {!video?.isLiveNow
+                  ? formatViewCount(video?.stats?.views)
+                  : `${video?.stats?.viewers} watching`}
               </ListItem>
-              <ListItem>{video?.publishedTimeText}</ListItem>
+              {!video?.isLiveNow && (
+                <ListItem>{video?.publishedTimeText}</ListItem>
+              )}
             </UnorderedList>
           </GridItem>
           {video?.isLiveNow ? (
-            <GridItem rowStart={3} rowEnd={4} colStart={2} colEnd={4}>
-              <chakra.span backgroundColor={"red"}>Live Now</chakra.span>
+            <GridItem rowStart={3} rowEnd={4} colStart={1} colEnd={2}>
+              <chakra.span
+                display={"flex"}
+                // justifyContent={"space-between"}
+                alignItems={"center"}
+                backgroundColor={"red"}
+                color={"#FFFFFF"}
+                fontWeight={600}
+                fontSize={"10px"}
+                p={"2px 2px"}
+                w={"80px"}
+              >
+                <BsBroadcast size={12} /> &nbsp; Live Now
+              </chakra.span>
             </GridItem>
           ) : null}
         </Grid>

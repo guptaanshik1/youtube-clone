@@ -1,10 +1,9 @@
-import { Divider, Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import {
   moreFromYtIconNameMap,
   sidebarExploreIconsNameMap,
   sidebarIconsNameMap,
 } from "../../../../../utils/sidebarIconsNameMap";
-import Icon from "../../../../Icon";
 import OpenedSidebarCommon from "./OpenedSidebarCommon";
 
 const OpenedSidebar = () => {

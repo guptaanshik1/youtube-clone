@@ -23,6 +23,7 @@ const Logo = () => {
           rounded: "full",
         }}
         _focus={{ outline: "none" }}
+        onClick={handleToggleSidebar}
       />
       <Image
         src={
