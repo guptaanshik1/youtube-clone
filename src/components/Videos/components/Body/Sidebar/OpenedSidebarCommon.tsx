@@ -14,7 +14,6 @@ const OpenedSidebarCommon = ({ iconNameMap }: IProps) => {
       flexDir={"column"}
       justifyContent={"flex-start"}
       alignItems={"flex-start"}
-      // border={"1px solid orange"}
     >
       {iconNameMap.map((icon) => {
         return (
@@ -23,7 +22,6 @@ const OpenedSidebarCommon = ({ iconNameMap }: IProps) => {
             key={icon.iconName}
             justifyContent={"flex-start"}
             alignItems={"center"}
-            // border={"1px solid blue"}
             w={"80%"}
             p={"0.6em 0.4em"}
             gap={"20px"}

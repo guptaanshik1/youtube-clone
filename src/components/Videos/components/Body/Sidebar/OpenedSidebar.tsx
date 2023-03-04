@@ -14,6 +14,7 @@ import {
 } from "../../../../../utils/sidebarIconsNameMap";
 import { useVideosContext } from "../../../utils/context";
 import Logo from "../../Logo";
+import BottomLinks from "./BottomLinks";
 import OpenedSidebarCommon from "./OpenedSidebarCommon";
 
 const OpenedSidebar = () => {
@@ -37,6 +38,7 @@ const OpenedSidebar = () => {
             <OpenedSidebarCommon iconNameMap={moreFromYtIconNameMap} />
           </>
           <OpenedSidebarCommon iconNameMap={commonIconNameMap} />
+          <BottomLinks />
         </DrawerBody>
       </DrawerContent>
     </Drawer>
