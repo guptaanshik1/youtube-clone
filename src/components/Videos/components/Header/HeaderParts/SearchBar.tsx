@@ -11,7 +11,7 @@ import { MdClose, MdOutlineMic } from "react-icons/md";
 import { useVideosContext } from "../../../utils/context";
 
 const SearchBar = () => {
-  const { searchQuery, setSearchQuery } = useVideosContext();
+  const { searchQuery, setSearchQuery, onVoiceModalOpen } = useVideosContext();
 
   const [isFocused, setIsFocused] = React.useState(false);
 
@@ -55,7 +55,11 @@ const SearchBar = () => {
         <TfiSearch size={20} cursor={"pointer"} />
       </Flex>
       <Flex ml={"0.8em"} alignItems={"center"} justifyContent={"center"}>
-        <MdOutlineMic size={"25px"} cursor={"pointer"} />
+        <MdOutlineMic
+          size={"25px"}
+          cursor={"pointer"}
+          onClick={() => onVoiceModalOpen()}
+        />
       </Flex>
     </InputGroup>
   );

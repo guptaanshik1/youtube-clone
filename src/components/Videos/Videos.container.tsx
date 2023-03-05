@@ -3,6 +3,7 @@ import VideosView from "./Videos.view";
 import { VideosContext } from "./utils/context";
 import useGetHomeVideos from "./hooks/useGetHomeVideos";
 import { useDisclosure } from "@chakra-ui/react";
+import VoiceSearchModal from "./components/VoiceSearchModal";
 
 export default function VideosContainer() {
   const { data: videosData, isLoading: isVideosDataLoading } =
@@ -16,6 +17,12 @@ export default function VideosContainer() {
     onOpen: onDrawerOpen,
   } = useDisclosure();
 
+  const {
+    isOpen: isVoiceModalOpen,
+    onClose: onVoiceModalClose,
+    onOpen: onVoiceModalOpen,
+  } = useDisclosure();
+
   return (
     <VideosContext.Provider
       value={{
@@ -25,9 +32,13 @@ export default function VideosContainer() {
         onDrawerOpen,
         searchQuery,
         setSearchQuery,
+        isVoiceModalOpen,
+        onVoiceModalClose,
+        onVoiceModalOpen,
       }}
     >
       <VideosView />
+      <VoiceSearchModal isOpen={isVoiceModalOpen} onClose={onVoiceModalClose} />
     </VideosContext.Provider>
   );
 }
