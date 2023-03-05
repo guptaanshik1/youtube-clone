@@ -1,11 +1,14 @@
 import { Flex, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
+import { useVideosContext } from "../../utils/context";
 import Logo from "../Logo";
 import SearchBar from "./HeaderParts/SearchBar";
+import SearchSuggestions from "./HeaderParts/SearchSuggestions";
 import UserHeader from "./HeaderParts/UserHeader";
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const { searchQuery } = useVideosContext();
+  const [showSuggestions, setShowSuggestions] = React.useState(false);
   return (
     <SimpleGrid
       columns={3}
@@ -27,9 +30,19 @@ const Header = () => {
         <Logo />
       </Flex>
       <Flex position={"relative"}>
-        <Flex>
-          <SearchBar />
-        </Flex>
+        <SearchBar />
+        {searchQuery.length > 0 && (
+          <Flex
+            mt={"50px"}
+            position={"absolute"}
+            width={"80%"}
+            h={"100px"}
+            backgroundColor={"#000000"}
+            borderRadius={"12px"}
+          >
+            <SearchSuggestions />
+          </Flex>
+        )}
       </Flex>
       <Flex justifyContent={"flex-end"}>
         <UserHeader />
