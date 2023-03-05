@@ -8,6 +8,8 @@ export default function VideosContainer() {
   const { data: videosData, isLoading: isVideosDataLoading } =
     useGetHomeVideos();
 
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
+
   const {
     isOpen: isDrawerOpen,
     onClose: onDrawerClose,
@@ -21,6 +23,8 @@ export default function VideosContainer() {
         isDrawerOpen,
         onDrawerClose,
         onDrawerOpen,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       <VideosView />
